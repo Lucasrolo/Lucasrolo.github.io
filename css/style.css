@@ -201,8 +201,8 @@ section:nth-child(even)::before {
 }
 
 .hero h1.gradient-text {
-    font-size: 10vw !important;
-    margin-bottom: 2vw;
+    font-size: 1.25vw !important;
+    margin-bottom: 1vw;
     line-height: 1.2;
     position: relative;
     text-align: center;
@@ -230,6 +230,18 @@ section:nth-child(even)::before {
     margin-bottom: 2rem;
     animation: fadeInUp 0.8s ease forwards 0.4s;
     opacity: 0;
+}
+
+@media (max-width: 1200px) {
+    .hero h1.gradient-text {
+        font-size: 1.5vw !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1.gradient-text {
+        font-size: 2vw !important;
+    }
 }
 
 /* Buttons */
@@ -591,7 +603,7 @@ section:nth-child(even)::before {
 /* Roles */
 .roles {
     font-size: 4vw !important;
-    color: var(--primary-color);
+    color: #000000;
     margin: 3vw auto;
     line-height: 1.6;
     font-weight: 800;
@@ -605,14 +617,9 @@ section:nth-child(even)::before {
 
 .role-text {
     display: inline-block;
-    background: linear-gradient(120deg, var(--primary-color) 0%, #4f46e5 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+    color: #000000;
     padding: 0 1vw;
     font-weight: 800;
-    text-shadow: 0 0 1px rgba(0,0,0,0.1);
 }
 
 .separator {
@@ -631,7 +638,7 @@ section:nth-child(even)::before {
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     .hero h1.gradient-text {
-        font-size: 12vw !important;
+        font-size: 1.5vw !important;
     }
     
     .roles {
@@ -645,7 +652,7 @@ section:nth-child(even)::before {
 
 @media (max-width: 768px) {
     .hero h1.gradient-text {
-        font-size: 15vw !important;
+        font-size: 2vw !important;
     }
     
     .roles {
