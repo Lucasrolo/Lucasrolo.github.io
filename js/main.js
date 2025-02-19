@@ -85,3 +85,47 @@ document.addEventListener('mouseleave', () => {
         dot.style.transform = 'translate(0, 0) rotate(0deg)';
     });
 });
+
+// View More Projects functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const viewMoreBtn = document.getElementById('view-more-btn');
+    const hiddenProjects = document.querySelectorAll('.hidden-project');
+    const btnIcon = viewMoreBtn.querySelector('i');
+    let projectsVisible = false;
+
+    if (viewMoreBtn && hiddenProjects.length > 0) {
+        viewMoreBtn.addEventListener('click', function() {
+            projectsVisible = !projectsVisible;
+            
+            hiddenProjects.forEach(project => {
+                project.classList.toggle('show');
+            });
+
+            // Update button text and icon
+            const btnSpan = viewMoreBtn.querySelector('span');
+            btnSpan.textContent = projectsVisible ? 'View Less Projects' : 'View More Projects';
+            btnIcon.classList.toggle('fa-chevron-up');
+            btnIcon.classList.toggle('fa-chevron-down');
+            
+            // Smooth scroll to newly visible projects if showing more
+            if (projectsVisible) {
+                const lastVisibleProject = hiddenProjects[hiddenProjects.length - 1];
+                setTimeout(() => {
+                    lastVisibleProject.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                }, 100);
+            } else {
+                // Scroll back to projects section when hiding
+                document.getElementById('projects').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+        });
+    } else {
+        // Hide button if no hidden projects
+        viewMoreBtn.style.display = 'none';
+    }
+});

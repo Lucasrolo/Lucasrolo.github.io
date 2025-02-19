@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:">
     <title>Lucas Meira Rolo - Software Engineer</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -64,7 +65,7 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title gradient-text">Featured Projects</h2>
-            <div class="projects-grid">
+            <div class="projects-grid" id="projects-grid">
                 <!-- Optisoin Project -->
                 <div class="project-card">
                     <div class="project-image">
@@ -81,6 +82,27 @@
                         <div class="project-links">
                             <a href="https://github.com/Lucasrolo/Optisoin" class="btn" target="_blank">View Code</a>
                             <a href="#" class="btn" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Edwin Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Images/Edwin.png" alt="Edwin - Intelligent Educational Assistant" class="project-img">
+                    </div>
+                    <div class="project-content">
+                        <h3>Edwin - Intelligent Educational Assistant</h3>
+                        <p>A modern educational platform featuring dual-role interface for teachers and students, smart student management, and comprehensive project tracking with a beautiful, responsive design.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">Vite</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Lucasrolo/Edwin-V2" class="btn" target="_blank">View Code</a>
+                            <a href="https://lucasrolo.github.io/Edwin-V2/" class="btn" target="_blank">Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +127,7 @@
                 </div>
 
                 <!-- Docker Project -->
-                <div class="project-card">
+                <div class="project-card hidden-project">
                     <div class="project-image">
                         <img src="images/docker-preview.jpg" alt="Docker Application" class="project-img">
                     </div>
@@ -122,6 +144,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="view-more-container">
+                <button id="view-more-btn" class="animated-text">
+                    <span>View More Projects</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
             </div>
         </div>
     </section>
