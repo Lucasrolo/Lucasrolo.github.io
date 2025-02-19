@@ -52,3 +52,36 @@ document.querySelectorAll('.project-card, .skill-category').forEach(el => {
     el.style.transition = 'all 0.6s ease-out';
     observer.observe(el);
 });
+
+// Mouse interaction with floating dots
+document.addEventListener('mousemove', (e) => {
+    const dots = document.querySelectorAll('.floating-dot');
+    const heroContent = document.querySelector('.hero-content');
+    const rect = heroContent.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    dots.forEach(dot => {
+        // Calculate distance from mouse to center
+        const deltaX = e.clientX - centerX;
+        const deltaY = e.clientY - centerY;
+        
+        // Calculate rotation and movement based on mouse position
+        const rotation = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+        const distance = Math.min(Math.sqrt(deltaX * deltaX + deltaY * deltaY) / 30, 10);
+        
+        // Apply transformation
+        const moveX = (deltaX / distance) * 0.5;
+        const moveY = (deltaY / distance) * 0.5;
+        
+        dot.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${rotation}deg)`;
+    });
+});
+
+// Reset position when mouse leaves
+document.addEventListener('mouseleave', () => {
+    const dots = document.querySelectorAll('.floating-dot');
+    dots.forEach(dot => {
+        dot.style.transform = 'translate(0, 0) rotate(0deg)';
+    });
+});
